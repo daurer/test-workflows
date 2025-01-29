@@ -11,7 +11,7 @@ policy:
   create: false
 
 serviceAccount:
-  create: false
+  create: true
 
 secret:
   create: false

@@ -31,11 +31,19 @@ spec:
       imagePullSecrets: {{ include "common.images.renderPullSecrets" (dict "images" (list $.Values.image) "context" $ ) }}
       containers:
         - name: sessionspaces
-          image: {{ include "common.images.image" ( dict "imageRoot" $.Values.image "global" $.Values.global "chart" $.Chart )}}
+          image: busybox
+          {{/* image: {{ include "common.images.image" ( dict "imageRoot" $.Values.image "global" $.Values.global "chart" $.Chart )}} */}}
+          command:
+            - sh
+          args:
+            - -c
+            - sleep infinity
           imagePullPolicy: {{ $.Values.image.pullPolicy }}
           env:
+            - name: DNS
+              value: {{ include "common.names.fullname" $ }}-ispyb-mock.{{ .Release.Namespace }}.svc.cluster.local:3306
             - name: DATABASE_PASSWORD
-              {{- if $.Values.database.mockDatabase }}
+              {{- if $.Values.mockDatabase.create }}
               value: {{ $.Values.database.password.value }}
               {{- else }}
               valueFrom:

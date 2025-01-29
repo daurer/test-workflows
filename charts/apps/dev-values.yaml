@@ -12,7 +12,7 @@ groups:
   enabled: true
 
 kyverno:
-  enabled: false
+  enabled: true
   valuesObject:
     admissionController:
       replicas: 1

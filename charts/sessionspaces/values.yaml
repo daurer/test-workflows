@@ -10,6 +10,7 @@ requestRate: 1
 image:
   repository: ghcr.io/diamondlightsource/workflows-sessionspaces
   pullPolicy: Always
+  imagePullSecrets: []
   tag: ""
 
 deployment:
@@ -40,10 +41,11 @@ secret:
 
 mockDatabase:
   create: false
+  dbPort: 3306
   image:
     repository: ghcr.io/diamondlightsource/ispyb-database
     pullPolicy: Always
-    tag: "v4.3.0"
+    tag: "latest"
   resources:
     requests:
       cpu: 100m

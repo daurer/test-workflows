@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "common.names.fullname" $ }}
+  name: {{ include "common.names.fullname" $ }}-ispyb-mock
   namespace: {{ .Release.Namespace }}
   {{- with $.Values.deployment.annotations }}
   annotations:
@@ -24,11 +24,6 @@ spec:
       labels:
         {{- include "common.labels.matchLabels" $ | nindent 8 }}
     spec:
-      {{/* {{- if $.Values.serviceAccount.create }} */}}
-      {{/* serviceAccountName: {{ default ( include "common.names.fullname" $ ) $.Values.serviceAccount.name }} */}}
-      {{/* {{- else }} */}}
-      {{/* serviceAccountName: {{ default "default" $.Values.serviceAccount.name }} */}}
-      {{/* {{- end }} */}}
       imagePullSecrets: {{ include "common.images.renderPullSecrets" (dict "images" (list $.Values.image) "context" $ ) }}
       containers:
         - name: ispyb-mock
@@ -36,10 +31,15 @@ spec:
           imagePullPolicy: {{ $.Values.mockDatabase.image.pullPolicy }}
           resources:
             {{- $.Values.mockDatabase.resources | toYaml | nindent 12 }}
+          env:
+            - name: MARIADB_ROOT_PASSWORD
+              value: {{ $.Values.database.password.value }}
           {{- with $.Values.mockDatabase.nodeSelector }}
           nodeSelector:
             {{- . | toYaml | nindent 8 }}
           {{- end }}
+          ports:
+            - containerPort: {{ $.Values.mockDatabase.dbPort }}
           {{- with $.Values.mockDatabase.affinity }}
           affinity:
             {{- . | toYaml | nindent 8 }}
