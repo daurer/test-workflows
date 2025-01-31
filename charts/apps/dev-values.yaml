@@ -35,7 +35,7 @@ kyverno:
           memory: 1Gi
 
 sessionspaces:
-  enabled: false
+  enabled: true 
   extraValueFiles:
     - dev-values.yaml
 
