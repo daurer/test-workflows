@@ -1,17 +1,15 @@
-database:
-  host: mysql://localhost:3306
-  user: root
-  password:
-    value: rootpassword
-
-mockDatabase:
-  create: true
+global:
+  database:
+    create: true
+    # Ignored if not mocking
+    user: root
+    password: rootpassword
 
 policy:
   create: false
 
 serviceAccount:
-  create: true
+  create: false
 
 secret:
   create: false

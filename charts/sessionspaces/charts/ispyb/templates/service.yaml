@@ -1,8 +1,8 @@
-{{- if $.Values.mockDatabase.create }}
+{{- if $.Values.global.database.create }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "common.names.fullname" $ }}-ispyb-mock
+  name: {{ include "common.names.fullname" $ }}
   namespace: {{ .Release.Namespace }}
   labels:
     {{- include "common.labels.standard" $ | nindent 4 }}
@@ -11,9 +11,9 @@ spec:
   selector:
     {{- include "common.labels.matchLabels" $ | nindent 4 }}
   ports:
-    - name: ispyb-mock
-      port: {{ $.Values.mockDatabase.dbPort }}
-      targetPort: {{ $.Values.mockDatabase.dbPort }}
+    - name: {{ include "common.names.fullname" $ }}
+      port: {{ $.Values.database.dbPort }}
+      targetPort: {{ $.Values.database.dbPort }}
       protocol: TCP
 {{- end }}
 

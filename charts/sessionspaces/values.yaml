@@ -1,9 +1,11 @@
 database:
+  create: false
   host: mysql://ispybdbproxy.diamond.ac.uk:4306/ispyb
   user: ispyb_ro
   password:
     secretName: ""
     secretKey: ""
+    values: ""
 ldapUrl: ldap://ldapmaster.diamond.ac.uk
 requestRate: 1
 
@@ -39,7 +41,7 @@ serviceAccount:
 secret:
   create: true
 
-mockDatabase:
+ispyb:
   create: false
   dbPort: 3306
   image:
