@@ -40,7 +40,7 @@ sessionspaces:
     - dev-values.yaml
 
 sealedsecrets:
-  enabled: true
+  enabled: false
   valuesObject:
     resources:
       limits:
