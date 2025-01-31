@@ -1,4 +1,4 @@
-{{- if $.Values.global.database.create }}
+{{- if $.Values.create }}
 apiVersion: v1
 kind: Service
 metadata:
@@ -12,8 +12,8 @@ spec:
     {{- include "common.labels.matchLabels" $ | nindent 4 }}
   ports:
     - name: {{ include "common.names.fullname" $ }}
-      port: {{ $.Values.database.dbPort }}
-      targetPort: {{ $.Values.database.dbPort }}
+      port: {{ $.Values.dbPort }}
+      targetPort: {{ $.Values.dbPort }}
       protocol: TCP
 {{- end }}
 

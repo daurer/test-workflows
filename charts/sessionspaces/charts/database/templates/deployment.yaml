@@ -1,4 +1,4 @@
-{{- if $.Values.global.database.create }}
+{{- if $.Values.create }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,36 +13,36 @@ spec:
       {{- include "common.labels.matchLabels" $ | nindent 6 }}
   template:
     metadata:
-      {{- with $.Values.database.podAnnotations }}
+      {{- with $.Values.podAnnotations }}
       annotations:
         {{- . | toYaml | nindent 8 }}
       {{- end }}
       labels:
         {{- include "common.labels.matchLabels" $ | nindent 8 }}
     spec:
-      imagePullSecrets: {{ include "common.images.renderPullSecrets" (dict "images" (list $.Values.database.image) "context" $ ) }}
+      imagePullSecrets: {{ include "common.images.renderPullSecrets" (dict "images" (list $.Values.image) "context" $ ) }}
       containers:
         - name: ispyb-mock
-          image: {{ include "common.images.image" ( dict "imageRoot" $.Values.database.image "global" $.Values.global "chart" $.Chart )}}
-          imagePullPolicy: {{ $.Values.database.image.pullPolicy }}
+          image: {{ include "common.images.image" ( dict "imageRoot" $.Values.image "global" $.Values "chart" $.Chart )}}
+          imagePullPolicy: {{ $.Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ $.Values.database.dbPort }}
+            - containerPort: {{ $.Values.dbPort }}
           resources:
-            {{- $.Values.database.resources | toYaml | nindent 12 }}
+            {{- $.Values.resources | toYaml | nindent 12 }}
           env:
             - name: MARIADB_ROOT_PASSWORD
-              value: {{ $.Values.global.database.password }}
-          {{- with $.Values.database.nodeSelector }}
+              value: {{ $.Values.password.value }}
+          {{- with $.Values.nodeSelector }}
           nodeSelector:
             {{- . | toYaml | nindent 8 }}
           {{- end }}
           ports:
-            - containerPort: {{ $.Values.database.dbPort }}
-          {{- with $.Values.database.affinity }}
+            - containerPort: {{ $.Values.dbPort }}
+          {{- with $.Values.affinity }}
           affinity:
             {{- . | toYaml | nindent 8 }}
           {{- end }}
-          {{- with $.Values.database.tolerations }}
+          {{- with $.Values.tolerations }}
           tolerations:
             {{- . | toYaml | nindent 8 }}
           {{- end }}

@@ -1,15 +1,27 @@
-global:
-  database:
-    create: true
-    # Ignored if not mocking
-    user: root
-    password: rootpassword
+database:
+  create: true
+  # Ignored if not mocking
+  dbPort: 3306
+  user: root
+  password:
+    value: rootpassword
+  image:
+    repository: ghcr.io/diamondlightsource/ispyb-database
+    pullPolicy: Always
+    tag: "latest"
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
 
 policy:
   create: false
 
 serviceAccount:
-  create: false
+  create: true
 
 secret:
   create: false

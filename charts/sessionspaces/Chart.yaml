@@ -9,7 +9,6 @@ dependencies:
   - name: common
     version: 2.23.0
     repository: oci://docker.io/bitnamicharts
-  - name: ispyb
-    enabled: 
+  - name: database
     version: 0.1.0
-    repository: file://./charts/ispyb
+    repository: file://./charts/database
