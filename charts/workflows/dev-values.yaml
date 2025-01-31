@@ -29,6 +29,10 @@ argo-workflows:
       requests:
         cpu: 250m
         memory: 256Mi
+  ingresstssecret:
+    enabled: false
+  s3sealedsecret:
+    enabled: false
 
 postgresql-ha:
   postgresql:
