@@ -18,10 +18,10 @@ database:
       memory: 512Mi
 
 policy:
-  create: false
+  create: true
 
 serviceAccount:
-  create: false
+  create: true
 
 secret:
   create: false
