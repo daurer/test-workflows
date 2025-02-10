@@ -37,6 +37,15 @@ s3sealedsecret:
 bitnamisecret:
   enabled: false
 
+s3artifactpolicy:
+  enabled: false
+sessionspacepolicy:
+  enabled: false
+podgcpolicy:
+  enabled: false
+workflowlabelpolicy:
+  enabled: false
+
 postgresql-ha:
   postgresql:
     replicaCount: 1
