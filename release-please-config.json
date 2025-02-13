@@ -13,31 +13,31 @@
   "packages": {
     "backend/graph-proxy": {
       "release-type": "rust",
-      "extra_files": [
+      "extra-files": [
         {
           "type": "yaml",
-          "path": "../../charts/graph-proxy/Chart.yaml",
-          "jsonpath": ".appVersion"
+          "path": "/charts/graph-proxy/Chart.yaml",
+          "jsonpath": "$.appVersion"
         }
       ]       
     },
     "backend/sessionspaces": {
       "release-type": "rust",
-      "extra_files": [
+      "extra-files": [
         {
           "type": "yaml",
-          "path": "../../charts/sessionspaces/Chart.yaml",
-          "jsonpath": ".appVersion"
+          "path": "/charts/sessionspaces/Chart.yaml",
+          "jsonpath": "$.appVersion"
         }
       ] 
     },
     "frontend/dashboard": {
       "release-type": "node",
-      "extra_files": [
+      "extra-files": [
         {
           "type": "yaml",
-          "path": "../../charts/dashboard/Chart.yaml",
-          "jsonpath": ".appVersion"
+          "path": "/charts/dashboard/Chart.yaml",
+          "jsonpath": "$.appVersion"
         }
       ] 
     },
