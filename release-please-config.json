@@ -6,6 +6,10 @@
   "separate-pull-requests": true,
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
+  "plugins": [
+    "node-workspace",
+    "cargo-workspace"
+  ],
   "extra-files": [
     "README.md",
     "mkdocs.yml"
