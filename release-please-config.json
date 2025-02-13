@@ -17,7 +17,7 @@
         {
           "type": "yaml",
           "path": "../../charts/graph-proxy/Chart.yaml",
-          "jsonpath": ".appVersion"
+          "jsonpath": "$.appVersion"
         }
       ]       
     },
@@ -27,7 +27,7 @@
         {
           "type": "yaml",
           "path": "../../charts/sessionspaces/Chart.yaml",
-          "jsonpath": ".appVersion"
+          "jsonpath": "$.appVersion"
         }
       ] 
     },
@@ -37,7 +37,7 @@
         {
           "type": "yaml",
           "path": "../../charts/dashboard/Chart.yaml",
-          "jsonpath": ".appVersion"
+          "jsonpath": "$.appVersion"
         }
       ] 
     },
