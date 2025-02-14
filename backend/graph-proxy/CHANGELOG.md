@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/daurer/test-workflows/compare/graph-proxy@v0.1.1...graph-proxy@v0.1.2) (2025-02-14)
+
+
+### Bug Fixes
+
+* **graph-proxy:** changed level to debug ([3e3362c](https://github.com/daurer/test-workflows/commit/3e3362c62dd525e39b7511e6cb53f462abb47ef4))
+
 ## [0.1.1](https://github.com/daurer/test-workflows/compare/graph-proxy-v0.1.0...graph-proxy@v0.1.1) (2025-02-14)
 
 
