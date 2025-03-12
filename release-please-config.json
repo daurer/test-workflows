@@ -7,9 +7,40 @@
   "bump-minor-pre-major": true,
   "bump-patch-for-minor-pre-major": true,
   "bootstrap-sha": "a0b5d5d9f479408433e32eb355bf5b38987333fb",
+  "plugins": [
+    {
+      "type": "linked-versions",
+      "groupName": "graph-proxy",
+      "component": [
+        "graph-proxy-chart", 
+        "graph-proxy-service"
+      ]
+    },
+    {
+      "type": "linked-versions",
+      "groupName": "sessionspaces",
+      "component": [
+        "sessionspaces-chart", 
+        "sessionspaces-service"
+      ]
+    },
+    {
+      "type": "linked-versions",
+      "groupName": "dashboard",
+      "component": [
+        "dashboard-chart", 
+        "dashboard-service"
+      ]
+    }
+  ],
   "packages": {
+    "charts/graph-proxy": {
+      "release-type": "helm",
+      "component": "graph-proxy-chart"
+    },
     "backend/graph-proxy": {
       "release-type": "rust",
+      "component": "graph-proxy-service",
       "extra-files": [
         {
           "type": "yaml",
@@ -18,8 +49,13 @@
         }
       ]       
     },
+    "charts/sessionspaces": {
+      "release-type": "helm",
+      "component": "sessionspaces-chart"
+    },
     "backend/sessionspaces": {
       "release-type": "rust",
+      "component": "sessionspaces-service",
       "extra-files": [
         {
           "type": "yaml",
@@ -28,8 +64,13 @@
         }
       ] 
     },
+    "charts/dashboard": {
+      "release-type": "helm",
+      "component": "dashboard-chart"
+    },
     "frontend/dashboard": {
       "release-type": "node",
+      "component": "dashboard-service",
       "extra-files": [
         {
           "type": "yaml",
