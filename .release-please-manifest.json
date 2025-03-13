@@ -1,8 +1,8 @@
 {
   "+1": "0.0.0",
-  "charts/graph-proxy": "0.2.6",
+  "charts/graph-proxy": "0.1.1",
   "+10": "0.0.0",
-  "backend/graph-proxy": "0.1.0",
+  "backend/graph-proxy": "0.1.1",
   "+2": "0.0.0",
   "charts/sessionspaces": "0.3.8",
   "+20": "0.0.0",
