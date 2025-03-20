@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/daurer/test-workflows/compare/graph-proxy@v0.1.1...graph-proxy@v0.1.2) (2025-03-20)
+
+
+### Bug Fixes
+
+* **graph-proxy:** remove punctuation ([f8b7214](https://github.com/daurer/test-workflows/commit/f8b72146062ba7f9983577cfb2164e72e6bd2907))
+
 ## [0.1.1](https://github.com/daurer/test-workflows/compare/graph-proxy@v0.1.0...graph-proxy@v0.1.1) (2025-03-20)
 
 
