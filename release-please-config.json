@@ -14,7 +14,8 @@
     }, 
     {
       "type": "cargo-workspace",
-      "updateAllPackages": false
+      "updateAllPackages": false,
+      "manifestPath": "./backend/Cargo.toml"
     }
   ],
   "packages": {
